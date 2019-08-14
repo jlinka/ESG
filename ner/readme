@@ -1,0 +1,21 @@
+课定制部分
+    修改程序运行显卡：
+        ner.py文件中Company_ner类的__init__函数第一行，0,1,2...表示显卡的编号
+    替换分句函数：
+        这里只使用了简易的分句方法：用。?!进行分句，可以替换，输入的句子最大长度越短，越有利于提高模型的并行程度
+
+使用方法：
+    1、初始化Company_ner类
+        comp = Company_ner()
+    2、调用extract_papers_entity或者extract_sentences_entity方法，二者区别在于输入的形式是句子还是文章
+        result = comp.extract_papers_entity(data) #输入的data的文章的list
+        result = comp.xtract_sentences_entity(data) #输入的data的句子的list
+
+
+输出：
+    每个句子/文章对应的输出结果形式：[公司名list，人名list]
+
+包依赖：
+python ==>3.5
+numpy ==>1.14.2
+tensorflow-gpu ==>1.2.1或者tensorflow ==>1.2.1
